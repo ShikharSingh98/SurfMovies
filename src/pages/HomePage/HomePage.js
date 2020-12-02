@@ -5,6 +5,7 @@ import styles from './HomePage.module.css';
 import MovieCardsList from '../../components/MovieCardsList/MovieCardsList';
 import Spinner from '../../components/Spinner/Spinner';
 import ShowError from '../../components/ShowError/ShowError';
+import Banner from '../../components/Banner/Banner';
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -38,6 +39,7 @@ function HomePage() {
 
   return (
     <div className={styles.container}>
+      <Banner />
       <h2 className={styles.heading}>Popular Movies</h2>
       <MovieCardsList movies={movies} />
     </div>
