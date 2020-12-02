@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 2rem;
-  border-bottom: 2px solid rgb(212, 212, 212);
-  background-color: #011627;
+  border-bottom: 2px solid #01111f;
+  background-color: #021b30;
 }
 
 .brand {
@@ -14,7 +14,7 @@
 .brandName {
   font-family: 'Permanent Marker', cursive;
   font-size: 2rem;
-  color: #ececec;
+  color: white;
 }
 
 .logo {

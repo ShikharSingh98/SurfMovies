@@ -4,7 +4,6 @@ import styles from './Navbar.module.css';
 import { ReactComponent as TMDBLogo } from '../../assets/TMDB Logo.svg';
 
 function Navbar() {
-  console.log(styles);
   return (
     <div className={styles.container}>
       <div className={styles.brand}>
