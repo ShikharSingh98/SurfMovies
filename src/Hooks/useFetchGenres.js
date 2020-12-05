@@ -3,12 +3,12 @@ import axios from 'axios';
 
 function useFetchGenres() {
   const [genres, setGenres] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const [isGenresLoading, setIsGenresLoading] = useState(true);
+  const [isGenresError, setIsGenresError] = useState(false);
 
   useEffect(() => {
     async function fetchGenres() {
-      setIsError(false);
+      setIsGenresError(false);
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`
@@ -19,14 +19,14 @@ function useFetchGenres() {
         ];
         setGenres(modifiedGenresData);
       } catch (error) {
-        setIsError(true);
+        setIsGenresError(true);
       }
-      setIsLoading(false);
+      setIsGenresLoading(false);
     }
     fetchGenres();
   }, []);
 
-  return { genres, isLoading, isError };
+  return { genres, isGenresLoading, isGenresError };
 }
 
 export default useFetchGenres;

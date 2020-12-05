@@ -4,16 +4,13 @@ import styles from './GenreList.module.css';
 import Spinner from '../Spinner/Spinner';
 import ShowError from '../ShowError/ShowError';
 import GenreListItem from '../GenreListItem/GenreListItem';
-import useFetchGenres from '../../Hooks/useFetchGenres';
 
-function GenreList({ setGenre }) {
-  const { genres, isLoading, isError } = useFetchGenres();
-
-  if (isLoading) {
+function GenreList({ setGenre, isGenresLoading, isGenresError, genres }) {
+  if (isGenresLoading) {
     return <Spinner />;
   }
 
-  if (isError) {
+  if (isGenresError) {
     return <ShowError />;
   }
 

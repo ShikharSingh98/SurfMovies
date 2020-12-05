@@ -5,7 +5,6 @@ function useFetchMovies(url, searchTerm) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-
   useEffect(() => {
     async function getMovies() {
       setIsError(false);
