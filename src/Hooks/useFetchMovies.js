@@ -3,11 +3,12 @@ import axios from 'axios';
 
 function useFetchMovies(url, searchTerm) {
   const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
   useEffect(() => {
     async function getMovies() {
+      setIsLoading(true);
       setIsError(false);
       try {
         const response = await axios.get(url, {

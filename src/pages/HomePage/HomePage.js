@@ -10,6 +10,7 @@ import useFetchMovies from '../../Hooks/useFetchMovies';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import useFetchGenres from '../../Hooks/useFetchGenres';
 import PrevNextButtons from '../../components/PrevNextButtons/PrevNextButtons';
+import NoMoivesFound from '../../components/NoMoviesFound/NoMoivesFound';
 
 function HomePage() {
   const [genre, setGenre] = useState({ id: null, name: 'Popular' });
@@ -25,7 +26,7 @@ function HomePage() {
   }
 
   if (genre.id) {
-    url = `${baseURL}/discover/movie?with_genres=${genre.id}&sort_by=popularity.desc&include_adult=false&page=${currentPage}`;
+    url = `${baseURL}/discover/movie?with_genres=${genre.id}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&certification_country=US&certification.lte=R`;
   }
   const { isLoading, isError, movies, totalPages } = useFetchMovies(
     url,
@@ -62,7 +63,11 @@ function HomePage() {
     }
     return (
       <>
-        <MovieCardsList movies={movies} />
+        {movies.length === 0 ? (
+          <NoMoivesFound />
+        ) : (
+          <MovieCardsList movies={movies} />
+        )}
         <PrevNextButtons
           onNextButtonClick={onNextButtonClick}
           onPrevButtonClick={onPrevButtonClick}
