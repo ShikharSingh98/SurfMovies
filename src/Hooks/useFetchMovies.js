@@ -5,13 +5,20 @@ function useFetchMovies(url, searchTerm) {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
   useEffect(() => {
     async function getMovies() {
       setIsError(false);
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(url, {
+          headers: {
+            authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+          },
+        });
         const moviesData = response.data.results;
+        const totalPages = response.data.total_pages;
         setMovies(moviesData);
+        setTotalPages(totalPages);
       } catch (error) {
         setIsError(true);
       }
@@ -34,6 +41,7 @@ function useFetchMovies(url, searchTerm) {
     movies,
     isLoading,
     isError,
+    totalPages,
   };
 }
 

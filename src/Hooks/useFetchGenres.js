@@ -11,7 +11,12 @@ function useFetchGenres() {
       setIsGenresError(false);
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`
+          `https://api.themoviedb.org/3/genre/movie/list`,
+          {
+            headers: {
+              authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
+            },
+          }
         );
         const modifiedGenresData = [
           { id: null, name: 'Popular' },

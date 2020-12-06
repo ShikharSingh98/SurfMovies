@@ -9,29 +9,47 @@ import GenreList from '../../components/GenreList/GenreList';
 import useFetchMovies from '../../Hooks/useFetchMovies';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import useFetchGenres from '../../Hooks/useFetchGenres';
+import PrevNextButtons from '../../components/PrevNextButtons/PrevNextButtons';
 
 function HomePage() {
   const [genre, setGenre] = useState({ id: null, name: 'Popular' });
   const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const baseURL = 'https://api.themoviedb.org/3';
 
-  let url = `${baseURL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`;
+  let url = `${baseURL}/movie/popular?page=${currentPage}`;
 
   if (searchTerm) {
-    url = `${baseURL}/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${searchTerm}&include_adult=false`;
+    url = `${baseURL}/search/movie?query=${searchTerm}&include_adult=false&page=${currentPage}`;
   }
 
   if (genre.id) {
-    url = `${baseURL}/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${genre.id}&sort_by=popularity.desc&include_adult=false`;
+    url = `${baseURL}/discover/movie?with_genres=${genre.id}&sort_by=popularity.desc&include_adult=false&page=${currentPage}`;
   }
-  const { isLoading, isError, movies } = useFetchMovies(url, searchTerm);
+  const { isLoading, isError, movies, totalPages } = useFetchMovies(
+    url,
+    searchTerm
+  );
 
   const { genres, isGenresLoading, isGenresError } = useFetchGenres();
 
-  function handleSearchInputChange(term) {
+  function onSearchInputChange(term) {
     setSearchTerm(term);
     setGenre({ id: null, name: 'Popular' });
+    setCurrentPage(1);
+  }
+
+  function onGenreChange(genre) {
+    setGenre(genre);
+    setCurrentPage(1);
+  }
+
+  function onNextButtonClick() {
+    setCurrentPage((prevCurrentPage) => prevCurrentPage + 1);
+  }
+  function onPrevButtonClick() {
+    setCurrentPage((prevCurrentPage) => prevCurrentPage - 1);
   }
 
   function display() {
@@ -44,23 +62,13 @@ function HomePage() {
     }
     return (
       <>
-        <SearchInput
-          searchTerm={searchTerm}
-          handleSearchInputChange={handleSearchInputChange}
-        />
-        {!searchTerm ? (
-          <>
-            <GenreList
-              setGenre={setGenre}
-              genres={genres}
-              isGenresLoading={isGenresLoading}
-              isGenresError={isGenresError}
-            />
-            <h2 className={styles.heading}>{genre.name} Movies</h2>
-          </>
-        ) : null}
-
         <MovieCardsList movies={movies} />
+        <PrevNextButtons
+          onNextButtonClick={onNextButtonClick}
+          onPrevButtonClick={onPrevButtonClick}
+          currentPage={currentPage}
+          totalPages={totalPages}
+        />
       </>
     );
   }
@@ -68,6 +76,21 @@ function HomePage() {
   return (
     <div className={styles.container}>
       <Banner />
+      <SearchInput
+        searchTerm={searchTerm}
+        onSearchInputChange={onSearchInputChange}
+      />
+      {!searchTerm ? (
+        <>
+          <GenreList
+            onGenreChange={onGenreChange}
+            genres={genres}
+            isGenresLoading={isGenresLoading}
+            isGenresError={isGenresError}
+          />
+          <h2 className={styles.heading}>{genre.name} Movies</h2>
+        </>
+      ) : null}
       {display()}
     </div>
   );

@@ -5,7 +5,7 @@ import Spinner from '../Spinner/Spinner';
 import ShowError from '../ShowError/ShowError';
 import GenreListItem from '../GenreListItem/GenreListItem';
 
-function GenreList({ setGenre, isGenresLoading, isGenresError, genres }) {
+function GenreList({ onGenreChange, isGenresLoading, isGenresError, genres }) {
   if (isGenresLoading) {
     return <Spinner />;
   }
@@ -17,7 +17,11 @@ function GenreList({ setGenre, isGenresLoading, isGenresError, genres }) {
   return (
     <div className={styles.container}>
       {genres.map((genre) => (
-        <GenreListItem key={genre.id} genre={genre} setGenre={setGenre} />
+        <GenreListItem
+          key={genre.id}
+          genre={genre}
+          onGenreChange={onGenreChange}
+        />
       ))}
     </div>
   );
