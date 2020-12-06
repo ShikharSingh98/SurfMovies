@@ -13,10 +13,12 @@ import PrevNextButtons from '../../components/PrevNextButtons/PrevNextButtons';
 import NoMoivesFound from '../../components/NoMoviesFound/NoMoivesFound';
 
 function HomePage() {
-  const [genre, setGenre] = useState({ id: null, name: 'Popular' });
+  const [selectedGenre, setSelectedGenre] = useState({
+    id: null,
+    name: 'Popular',
+  });
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-
   const baseURL = 'https://api.themoviedb.org/3';
 
   let url = `${baseURL}/movie/popular?page=${currentPage}`;
@@ -25,8 +27,8 @@ function HomePage() {
     url = `${baseURL}/search/movie?query=${searchTerm}&include_adult=false&page=${currentPage}`;
   }
 
-  if (genre.id) {
-    url = `${baseURL}/discover/movie?with_genres=${genre.id}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&certification_country=US&certification.lte=R`;
+  if (selectedGenre.id) {
+    url = `${baseURL}/discover/movie?with_genres=${selectedGenre.id}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&certification_country=IN&certification.lte=A`;
   }
   const { isLoading, isError, movies, totalPages } = useFetchMovies(
     url,
@@ -37,12 +39,12 @@ function HomePage() {
 
   function onSearchInputChange(term) {
     setSearchTerm(term);
-    setGenre({ id: null, name: 'Popular' });
+    setSelectedGenre({ id: null, name: 'Popular' });
     setCurrentPage(1);
   }
 
-  function onGenreChange(genre) {
-    setGenre(genre);
+  function onGenreClick(genre) {
+    setSelectedGenre(genre);
     setCurrentPage(1);
   }
 
@@ -88,12 +90,13 @@ function HomePage() {
       {!searchTerm ? (
         <>
           <GenreList
-            onGenreChange={onGenreChange}
+            onGenreClick={onGenreClick}
             genres={genres}
             isGenresLoading={isGenresLoading}
             isGenresError={isGenresError}
+            selectedGenre={selectedGenre}
           />
-          <h2 className={styles.heading}>{genre.name} Movies</h2>
+          <h2 className={styles.heading}>{selectedGenre.name} Movies</h2>
         </>
       ) : null}
       {display()}

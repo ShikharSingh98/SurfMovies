@@ -5,7 +5,13 @@ import Spinner from '../Spinner/Spinner';
 import ShowError from '../ShowError/ShowError';
 import GenreListItem from '../GenreListItem/GenreListItem';
 
-function GenreList({ onGenreChange, isGenresLoading, isGenresError, genres }) {
+function GenreList({
+  onGenreClick,
+  isGenresLoading,
+  isGenresError,
+  genres,
+  selectedGenre,
+}) {
   if (isGenresLoading) {
     return <Spinner />;
   }
@@ -20,7 +26,8 @@ function GenreList({ onGenreChange, isGenresLoading, isGenresError, genres }) {
         <GenreListItem
           key={genre.id}
           genre={genre}
-          onGenreChange={onGenreChange}
+          onGenreClick={onGenreClick}
+          selectedGenre={selectedGenre}
         />
       ))}
     </div>
