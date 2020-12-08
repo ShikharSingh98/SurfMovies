@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
 }
 
-.heading {
-  color: white;
-  text-transform: uppercase;
+.movieInfoContainer {
+  display: flex;
+  width: 80%;
 }

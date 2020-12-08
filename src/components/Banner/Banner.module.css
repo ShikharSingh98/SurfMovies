@@ -11,8 +11,6 @@
 }
 
 .text {
-  color: white;
-  font-family: 'Varela Round', sans-serif;
   font-size: 3.5rem;
 }
 .text:last-child {

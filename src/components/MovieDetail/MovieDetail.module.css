@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 2rem;
+}
+
+.headingContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgb(185, 185, 185);
+}
+
+.ratingGenresContainer {
+  display: flex;
+  align-items: center;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.ratingScore {
+  font-size: 3rem;
+}
+
+.genre {
+  margin-left: 1rem;
+  color: #00b0ff;
+}
+.genresContainer {
+  width: 100%;
+  margin-left: 2rem;
+}
+
+.overview {
+  font-size: 1.5rem;
+}
+
+.description {
+  color: rgb(185, 185, 185);
+}
