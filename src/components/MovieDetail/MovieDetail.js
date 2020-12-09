@@ -16,10 +16,7 @@ function MovieDetail({ title, genres, rating, overview, year, tagline }) {
       <div className={styles.ratingGenresContainer}>
         <div className={styles.ratingContainer}>
           <span className={styles.ratingScore}>{rating}</span>
-          <img
-            src="https://img.icons8.com/fluent/30/000000/star.png"
-            alt="star"
-          />
+          <i className={`fas fa-star ${styles.star}`}></i>
         </div>
         <div className={styles.genresContainer}>
           {genres.map((genre) => (

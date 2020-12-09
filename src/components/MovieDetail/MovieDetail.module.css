@@ -50,3 +50,8 @@
 .description {
   color: rgb(185, 185, 185);
 }
+
+.star {
+  color: #ffbb00;
+  font-size: 1.5rem;
+}

@@ -8,10 +8,10 @@ function Navbar() {
   return (
     <div className={styles.container}>
       <Link to="/" className={styles.brand}>
-        <img src="https://img.icons8.com/nolan/48/movie.png" alt="brand-logo" />
+        <i className={`fas fa-video ${styles.logo}`}></i>
         <span className={styles.brandName}>SurfMovies</span>
       </Link>
-      <TMDBLogo className={styles.logo} />
+      <TMDBLogo className={styles.TMDBlogo} />
     </div>
   );
 }

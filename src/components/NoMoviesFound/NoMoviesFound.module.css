@@ -1,8 +1,11 @@
 .container {
-  display: flex;
-  align-items: center;
+  margin: 5rem 0;
 }
 .text {
   font-size: 2rem;
   margin-left: 1rem;
+  color: #00b0ff;
+}
+.icon {
+  font-size: 3rem;
 }
