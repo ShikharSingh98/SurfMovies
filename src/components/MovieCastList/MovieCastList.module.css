@@ -1,0 +1,6 @@
+.container {
+  overflow-x: auto;
+  display: flex;
+  width: 80%;
+  margin: 2rem 0;
+}

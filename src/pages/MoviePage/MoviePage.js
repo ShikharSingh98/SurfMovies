@@ -8,6 +8,7 @@ import MovieDetail from '../../components/MovieDetail/MovieDetail';
 
 import styles from './MoviePage.module.css';
 import MoviePoster from '../../components/MoviePoster/MoviePoster';
+import MovieCastList from '../../components/MovieCastList/MovieCastList';
 
 function MoviePage() {
   const { id } = useParams();
@@ -74,6 +75,8 @@ function MoviePage() {
         <MoviePoster poster_path={movie.poster_path} title={movie.title} />
         <MovieDetail {...movie} />
       </div>
+      <span className={styles.heading}>CAST</span>
+      <MovieCastList cast={movie.cast} />
     </div>
   );
 }

@@ -19,6 +19,7 @@ function HomePage() {
   });
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+
   const baseURL = 'https://api.themoviedb.org/3';
 
   let url = `${baseURL}/movie/popular?page=${currentPage}`;
@@ -30,6 +31,7 @@ function HomePage() {
   if (selectedGenre.id) {
     url = `${baseURL}/discover/movie?with_genres=${selectedGenre.id}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&certification_country=IN&certification.lte=A`;
   }
+
   const { isLoading, isError, movies, totalPages } = useFetchMovies(
     url,
     searchTerm
