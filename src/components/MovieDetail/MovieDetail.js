@@ -15,7 +15,7 @@ function MovieDetail({ title, genres, rating, overview, year, tagline }) {
       </div>
       <div className={styles.ratingGenresContainer}>
         <div className={styles.ratingContainer}>
-          <span className={styles.ratingScore}>{rating}</span>
+          <span className={styles.rating}>{rating}/10</span>
           <i className={`fas fa-star ${styles.star}`}></i>
         </div>
         <div className={styles.genresContainer}>

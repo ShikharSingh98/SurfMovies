@@ -9,6 +9,7 @@ import MovieDetail from '../../components/MovieDetail/MovieDetail';
 import styles from './MoviePage.module.css';
 import MoviePoster from '../../components/MoviePoster/MoviePoster';
 import MovieCastList from '../../components/MovieCastList/MovieCastList';
+import RecommendedMoviesList from '../../components/RecommendedMoviesList/RecommendedMoviesList';
 
 function MoviePage() {
   const { id } = useParams();
@@ -42,7 +43,7 @@ function MoviePage() {
           }
         );
         const data = response.data;
-        const movie = {
+        const movieData = {
           title: data.title,
           poster_path: data.poster_path,
           year: new Date(data.release_date).getFullYear(),
@@ -53,7 +54,7 @@ function MoviePage() {
           recommendations: data.recommendations.results,
           tagline: data.tagline,
         };
-        setMovie(movie);
+        setMovie(movieData);
       } catch (error) {
         setIsError(true);
       }
@@ -77,6 +78,12 @@ function MoviePage() {
       </div>
       <span className={styles.heading}>CAST</span>
       <MovieCastList cast={movie.cast} />
+      {movie.recommendations.length ? (
+        <>
+          <span className={styles.heading}>Recommended Movies</span>
+          <RecommendedMoviesList recommendations={movie.recommendations} />
+        </>
+      ) : null}
     </div>
   );
 }
