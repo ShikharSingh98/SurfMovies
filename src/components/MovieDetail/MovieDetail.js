@@ -2,7 +2,15 @@ import React from 'react';
 
 import styles from './MovieDetail.module.css';
 
-function MovieDetail({ title, genres, rating, overview, year, tagline }) {
+function MovieDetail({
+  title,
+  genres,
+  rating,
+  overview,
+  year,
+  tagline,
+  videos,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.headingContainer}>
