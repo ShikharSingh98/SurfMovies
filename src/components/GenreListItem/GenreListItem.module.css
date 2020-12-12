@@ -18,3 +18,11 @@
   background: white;
   color: #001322;
 }
+
+@media (max-width: 900px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    margin: 0.2rem;
+  }
+}

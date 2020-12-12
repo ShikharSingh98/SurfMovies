@@ -34,8 +34,8 @@ function MovieDetail({
           ))}
         </div>
       </div>
-      <div>
-        <span className={styles.overview}>Overview</span>
+      <div className={styles.overviewContainer}>
+        <span className={styles.overviewHeading}>Overview</span>
         <p className={styles.description}>{overview}</p>
       </div>
     </div>

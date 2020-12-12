@@ -13,3 +13,31 @@
 .icon {
   font-size: 3rem;
 }
+
+.large {
+  height: 420px;
+  width: 280px;
+  margin: 0.8rem 0;
+}
+
+.small {
+  height: 300px;
+  width: 200px;
+}
+
+@media (max-width: 900px) {
+  .large {
+    width: 120px;
+    height: 160px;
+  }
+  .small {
+    height: 200px;
+    width: 133px;
+  }
+  .text {
+    margin-top: 1rem;
+  }
+  .icon {
+    font-size: 2rem;
+  }
+}

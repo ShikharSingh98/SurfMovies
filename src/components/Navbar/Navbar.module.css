@@ -26,3 +26,20 @@
 .TMDBlogo {
   width: 20%;
 }
+
+@media (max-width: 900px) {
+  .container {
+    padding: 0.5rem 1rem;
+  }
+
+  .brandName {
+    font-size: 1rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+  .TMDBlogo {
+    width: 40%;
+  }
+}

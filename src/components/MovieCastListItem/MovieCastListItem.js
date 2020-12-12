@@ -15,7 +15,7 @@ function MovieCastListItem({ name, character, profile_path }) {
           />
         </>
       ) : (
-        <ImageNotFound height="300px" width="200px" margin="0rem" />
+        <ImageNotFound cardSize="small" />
       )}
       <span className={styles.name}>{name}</span>
       <span className={styles.character}>{character}</span>

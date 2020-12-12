@@ -13,6 +13,7 @@
 .text {
   font-size: 3.5rem;
 }
+
 .text:last-child {
   text-transform: uppercase;
   font-size: 4.5rem;
@@ -21,4 +22,19 @@
 
 .image {
   width: 500px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    height: 300px;
+  }
+  .text {
+    font-size: 1.5rem;
+  }
+  .text:last-child {
+    font-size: 2.5rem;
+  }
+  .image {
+    width: 200px;
+  }
 }

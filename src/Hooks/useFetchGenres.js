@@ -3,11 +3,12 @@ import axios from 'axios';
 
 function useFetchGenres() {
   const [genres, setGenres] = useState([]);
-  const [isGenresLoading, setIsGenresLoading] = useState(true);
+  const [isGenresLoading, setIsGenresLoading] = useState(false);
   const [isGenresError, setIsGenresError] = useState(false);
 
   useEffect(() => {
     async function fetchGenres() {
+      setIsGenresLoading(true);
       setIsGenresError(false);
       try {
         const response = await axios.get(

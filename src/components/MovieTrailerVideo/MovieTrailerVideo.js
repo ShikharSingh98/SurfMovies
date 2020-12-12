@@ -1,15 +1,15 @@
 import React from 'react';
 
+import styles from './MovieTrailerVideo.module.css';
+
 function MovieTrailerVideo({ videoKey }) {
   return (
     <iframe
-      width="840"
-      height="480"
       src={`https://www.youtube.com/embed/${videoKey}`}
       frameBorder="0"
       allowFullScreen
       title="movie video"
-      style={{ marginTop: '5rem' }}
+      className={styles.frame}
     ></iframe>
   );
 }

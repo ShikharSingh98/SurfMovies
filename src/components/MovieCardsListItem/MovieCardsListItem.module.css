@@ -1,8 +1,17 @@
 .image {
-  display: block;
   width: 280px;
   height: 420px;
   border-radius: 10px;
   cursor: pointer;
   margin: 0.8rem 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .image {
+    width: 120px;
+    height: 160px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 0.8rem 0.5rem;
+  }
 }

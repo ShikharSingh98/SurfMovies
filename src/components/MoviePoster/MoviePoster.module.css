@@ -3,3 +3,10 @@
   height: 400px;
   box-shadow: 0 0 20px #00385e;
 }
+
+@media (max-width: 900px) {
+  .poster {
+    height: 240px;
+    width: 200px;
+  }
+}

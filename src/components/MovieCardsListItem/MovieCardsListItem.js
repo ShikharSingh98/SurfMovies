@@ -16,14 +16,7 @@ function MovieCardsListItem({ movie }) {
       />
     );
   } else {
-    return (
-      <ImageNotFound
-        movieName={movie.title}
-        height="420px"
-        width="280px"
-        margin="0.8rem 0"
-      />
-    );
+    return <ImageNotFound movieName={movie.title} cardSize="large" />;
   }
 }
 

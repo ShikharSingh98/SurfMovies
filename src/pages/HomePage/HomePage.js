@@ -52,9 +52,11 @@ function HomePage() {
 
   function onNextButtonClick() {
     setCurrentPage((prevCurrentPage) => prevCurrentPage + 1);
+    window.scrollTo({ top: 500, behavior: 'smooth' });
   }
   function onPrevButtonClick() {
     setCurrentPage((prevCurrentPage) => prevCurrentPage - 1);
+    window.scrollTo({ top: 500, behavior: 'smooth' });
   }
 
   function display() {

@@ -22,3 +22,15 @@
   color: rgb(185, 185, 185);
   margin-bottom: 1rem;
 }
+
+@media (max-width: 900px) {
+  .profileImage {
+    height: 200px;
+  }
+  .name {
+    font-size: 1rem;
+  }
+  .character {
+    font-size: 0.9rem;
+  }
+}

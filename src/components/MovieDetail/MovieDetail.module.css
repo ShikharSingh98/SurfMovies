@@ -51,10 +51,40 @@
   margin-left: 2rem;
 }
 
-.overview {
+.overviewHeading {
   font-size: 1.5rem;
 }
 
 .description {
   color: rgb(185, 185, 185);
+}
+
+@media (max-width: 900px) {
+  .container {
+    margin-left: 0rem;
+    margin-top: 2rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .tagline {
+    font-size: 1rem;
+  }
+  .ratingGenresContainer {
+    flex-wrap: wrap;
+  }
+  .ratingContainer {
+    margin-top: 2rem;
+  }
+  .genresContainer {
+    margin-left: 0rem;
+    margin-top: 2rem;
+  }
+  .genre {
+    margin-left: 0rem;
+    margin-right: 1rem;
+  }
+  .overviewContainer {
+    margin-top: 2rem;
+  }
 }
