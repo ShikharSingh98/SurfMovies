@@ -1,8 +1,8 @@
 # SURF MOVIES
 
-[Click To Visit](https://surfmoviesbyshikhar.netlify.app/)
-
 Web application made with React(Hooks) and The Movie Database API.
+
+[Click To Visit](https://surfmoviesbyshikhar.netlify.app/)
 
 ## Features
 
